@@ -4,12 +4,8 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: [
-    'plugin:vue/vue3-essential',
-    'standard'
-  ],
-  overrides: [
-  ],
+  extends: ['plugin:vue/vue3-essential', 'standard'],
+  overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module'
@@ -17,16 +13,14 @@ module.exports = {
   settings: {
     'import/resolver': {
       alias: {
-        map: [
-          ['@', './src']
-        ],
+        map: [['@', './src']],
         extensions: ['.js', '.vue']
       }
     }
   },
-  plugins: [
-    'vue'
-  ],
+  plugins: ['vue'],
   rules: {
+    'space-before-function-paren': 0,
+    camelcase: 'off'
   }
 }

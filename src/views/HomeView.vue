@@ -1,21 +1,13 @@
 <template>
   <div class="home">
-    <h1>Hello, This is Home Page.</h1>
-    <!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-    <hr>
-    <HelloWorld /> -->
+    <h1>Hello, This is FrontEnd Home Page.</h1>
+
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  components: {
-    // HelloWorld
-  }
-}
+export default {}
 </script>
 
 <style scoped></style>

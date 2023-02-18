@@ -3,7 +3,7 @@
   <router-link :to="{ name: 'Products', params: {} }">產品列表</router-link> |
   <router-link :to="{ name: 'Cart', params: {} }">購物車</router-link> |
   <router-link :to="{ name: 'Admin', params: {} }">後台</router-link>
-  <router-view />
+  <router-view></router-view>
 </template>
 
 <script>
