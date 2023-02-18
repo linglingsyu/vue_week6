@@ -1,0 +1,3 @@
+<template>
+  <h1>this is cart page</h1>
+</template>

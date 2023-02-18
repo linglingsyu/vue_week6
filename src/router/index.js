@@ -4,12 +4,34 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('../views/HomeView.vue')
+    component: () => import('../views/ProductList.vue'),
+    children: [
+      {
+        path: 'products',
+        name: 'Products',
+        component: () => import('../views/ProductList.vue')
+      },
+      {
+        path: 'product/:id',
+        name: 'Product',
+        component: () => import('../views/ProductView.vue')
+      },
+      {
+        path: 'cart',
+        name: 'Cart',
+        component: () => import('../views/CartView.vue')
+      }
+    ]
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/AboutView.vue')
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/admin/LoginView.vue')
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: () => import('../views/admin/IndexView.vue')
   }
 ]
 
