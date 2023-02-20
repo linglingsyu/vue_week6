@@ -26,6 +26,7 @@ export default defineStore('authStore', {
         return res.data.success
       } catch (error) {
         console.dir(error)
+        this.router.push({ name: 'login' })
         return false
       }
     },

@@ -111,6 +111,7 @@ export default {
         return prev
       }, 0)
     }
-  }
+  },
+  watch: {}
 }
 </script>

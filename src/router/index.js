@@ -44,20 +44,11 @@ const router = createRouter({
 
 router.beforeEach(async (to, from) => {
   const store = AuthStore()
-  console.log(!store.checkLogin())
-  try {
-    if (
-      to.meta.requiresAuth &&
-      // 检查用户是否已登录
-      !store.checkLogin() &&
-      // ❗️ 避免无限重定向
-      to.name !== 'login'
-    ) {
-      // 将用户重定向到登录页面
-      return { name: 'login' }
-    }
-  } catch {
-    console.log('aasdasdasd')
+
+  if (to.meta.requiresAuth && to.name !== 'login') {
+    // 检查用户是否已登录
+    store.checkLogin()
+    // return { name: 'login' }
   }
 })
 
