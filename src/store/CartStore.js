@@ -3,11 +3,13 @@ import { API, api_path } from '@/helper/api.js'
 export default defineStore('cartStore', {
   state: () => ({
     cartList: [],
-    Loading: false
+    Loading: false,
+    isShow: false
   }),
   getters: {
     isLoading: ({ Loading }) => Loading,
-    carts: ({ cartList }) => cartList
+    carts: ({ cartList }) => cartList,
+    is_show: ({ isShow }) => isShow
   },
   actions: {
     async getCartList() {
@@ -15,7 +17,7 @@ export default defineStore('cartStore', {
         this.Loading = true
         const path = `/api/${api_path}/cart`
         const res = await API.get(path)
-        // console.log(res)
+        console.log(res)
         this.cartList = res.data.data.carts
         this.Loading = false
       } catch (error) {
@@ -47,6 +49,8 @@ export default defineStore('cartStore', {
           }
           alert(str)
         }
+      } finally {
+        this.showAlert()
       }
     },
     async delOneCart(id) {
@@ -83,6 +87,7 @@ export default defineStore('cartStore', {
         const path = `/api/${api_path}/order`
         const res = await API.post(path, { data: data })
         this.Loading = false
+        this.getCartList()
         // console.log(res)
         return res
       } catch (error) {
@@ -90,6 +95,10 @@ export default defineStore('cartStore', {
         console.dir(error)
         alert(error.response.data.message)
       }
+    },
+    showAlert() {
+      this.isShow = true
+      setTimeout(() => (this.isShow = false), 1000)
     }
   }
 })

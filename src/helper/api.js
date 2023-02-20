@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const config = {
-  baseURL: 'https://vue3-course-api.hexschool.io/v2/',
+  baseURL: import.meta.env.VITE_API,
   headers: {}
 }
 
@@ -14,7 +14,7 @@ if (token) {
   config.headers.Authorization = token
 }
 
-const api_path = 'elsasyu'
+const api_path = import.meta.env.VITE_APIPATH
 
 const API = axios.create(config)
 export { API, api_path }

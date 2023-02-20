@@ -53,6 +53,13 @@
       </div>
     </div>
   </div>
+  <div
+    class="alert alert-info position-absolute top-50 end-0"
+    role="alert"
+    v-if="is_show"
+  >
+    成功加入購物車！
+  </div>
 </template>
 <script>
 import { mapActions, mapState } from 'pinia'
@@ -77,7 +84,7 @@ export default {
   },
   computed: {
     ...mapState(productStore, ['isLoading', 'product']),
-    ...mapState(CartStore, ['isLoading'])
+    ...mapState(CartStore, ['isLoading', 'is_show'])
   }
 }
 </script>
