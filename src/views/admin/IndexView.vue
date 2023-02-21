@@ -1,4 +1,6 @@
-<template>this is 後台</template>
+<template>
+  <h1>登入成功！this is 後台</h1>
+</template>
 
 <script>
 // import { mapActions, mapState } from 'pinia'

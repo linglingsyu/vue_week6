@@ -11,7 +11,8 @@ export default defineStore('authStore', {
         const res = await API.post('admin/signin', data)
         const { token, expired } = res.data
         await this.setCookie(token, expired)
-        this.router.push({ name: 'Admin' })
+        location.href = '/vue_week6/#/admin'
+        // this.router.push({ name: 'Admin' })
       } catch (error) {
         alert('登入失敗')
         console.dir(error)
