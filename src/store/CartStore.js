@@ -17,7 +17,6 @@ export default defineStore('cartStore', {
         this.Loading = true
         const path = `/api/${api_path}/cart`
         const res = await API.get(path)
-        console.log(res)
         this.cartList = res.data.data.carts
         this.Loading = false
       } catch (error) {
