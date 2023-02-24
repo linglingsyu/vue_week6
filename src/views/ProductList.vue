@@ -28,14 +28,14 @@
               <router-link
                 class="btn btn-sm btn-outline-primary mx-1"
                 :to="'/product/' + product.id"
-                >查到更多</router-link
+                >看更多</router-link
               >
               <!-- <a
               class="btn btn-sm btn-outline-primary mx-1"
               :href="'/product/' + product.id"
               >查到更多</a
             > -->
-              <a class="btn btn-sm btn-outline-danger" href="#">加入購物車</a>
+              <!-- <a class="btn btn-sm btn-outline-danger" href="#">加入購物車</a> -->
             </td>
           </tr>
         </tbody>

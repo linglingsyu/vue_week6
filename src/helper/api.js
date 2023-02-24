@@ -9,7 +9,6 @@ const api_path = import.meta.env.VITE_APIPATH
 
 const API = axios.create(config)
 
-// 此處的instance為我們create的實體
 API.interceptors.request.use(
   function (config) {
     const token = document.cookie.replace(

@@ -33,6 +33,11 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: '/:pathMath(.*)*',
+    name: 'NotFound',
+    component: () => import('../views/404View.vue')
   }
 ]
 

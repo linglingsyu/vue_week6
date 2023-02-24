@@ -8,7 +8,9 @@ import App from './App.vue'
 import router from './router'
 import { createPinia } from 'pinia'
 import { defineRule, configure } from 'vee-validate'
-import { required, email } from '@vee-validate/rules'
+// import { required, email } from '@vee-validate/rules'
+import AllRules from '@vee-validate/rules'
+
 import { localize } from '@vee-validate/i18n'
 import tw from '@vee-validate/i18n/dist/locale/zh_TW.json'
 
@@ -24,8 +26,12 @@ pinia.use(({ store }) => {
   store.router = markRaw(router)
 })
 
-defineRule('required', required)
-defineRule('email', email)
+// defineRule('required', required)
+// defineRule('email', email)
+
+Object.keys(AllRules).forEach((rule) => {
+  defineRule(rule, AllRules[rule])
+})
 
 app.component('isLoading', Loading)
 app.use(router).use(pinia)

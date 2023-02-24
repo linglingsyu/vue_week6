@@ -27,25 +27,53 @@
       </table>
     </div>
     <div class="my-5 row justify-content-center">
-      <vForm :validation-schema="simpleSchema" @submit="onSubmit">
+      <vForm
+        :validation-schema="simpleSchema"
+        @submit="onSubmit"
+        v-slot="{ errors }"
+      >
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <Field id="email" name="email" class="form-control" />
+          <Field
+            id="email"
+            name="email"
+            label="Email"
+            class="form-control"
+            :class="{ 'is-invalid': errors['email'] }"
+          />
           <ErrorMessage class="text-danger" name="email" />
         </div>
         <div class="mb-3">
           <label for="name" class="form-label">收件人姓名</label>
-          <Field id="name" name="name" class="form-control" />
+          <Field
+            id="name"
+            name="name"
+            label="姓名"
+            class="form-control"
+            :class="{ 'is-invalid': errors['name'] }"
+          />
           <ErrorMessage class="text-danger" name="name" />
         </div>
         <div class="mb-3">
           <label for="tel" class="form-label">收件人電話</label>
-          <Field id="tel" name="tel" class="form-control" />
+          <Field
+            id="tel"
+            name="tel"
+            label="電話"
+            class="form-control"
+            :class="{ 'is-invalid': errors['tel'] }"
+          />
           <ErrorMessage class="text-danger" name="tel" />
         </div>
         <div class="mb-3">
           <label for="address" class="form-label">收件人地址</label>
-          <Field id="address" name="address" class="form-control" />
+          <Field
+            id="address"
+            name="address"
+            label="地址"
+            class="form-control"
+            :class="{ 'is-invalid': errors['address'] }"
+          />
           <ErrorMessage class="text-danger" name="address" />
         </div>
         <div class="mb-3">
@@ -79,7 +107,7 @@ export default {
         email: 'required|email',
         name: 'required',
         address: 'required',
-        tel: 'required'
+        tel: 'required|min:8'
       }
     }
   },
@@ -101,6 +129,22 @@ export default {
       }
       await this.addOrder(data)
       resetForm()
+      this.message = ''
+    },
+    validateTel(value) {
+      // if the field is empty
+      if (!value) {
+        return '電話為必填'
+      }
+      const regex = /[0-9]/i
+      if (!regex.test(value)) {
+        return '必須為0-9'
+      }
+      if (value.length < 8) {
+        return '電話長度至少需要8碼'
+      }
+      // All is good
+      return true
     }
   },
   computed: {
