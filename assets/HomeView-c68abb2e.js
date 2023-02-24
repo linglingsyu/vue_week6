@@ -1,0 +1,1 @@
+import{_ as o,r as s,o as t,c as n,a as r,b as c}from"./index-e96ed495.js";const a={},_={class:"home"},i=c("h1",null,"Hello, This is FrontEnd Home Page.",-1);function d(l,p,m,u,f,h){const e=s("router-view");return t(),n("div",_,[i,r(e)])}const $=o(a,[["render",d]]);export{$ as default};
